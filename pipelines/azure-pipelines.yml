@@ -4,14 +4,16 @@ trigger:
       - main
 
 variables:
-  ACR_NAME: '$(ACR_NAME)'       # e.g. acrgitopsdemo12345
-  ACR_LOGIN_SERVER: '$(ACR_LOGIN_SERVER)'  # e.g. acrgitopsdemo12345.azurecr.io
   IMAGE_NAME: 'sample-app'
   IMAGE_TAG: 'v$(Build.BuildId)'
+  ACR_NAME: 'acrgitopsdemo12345'
+  ACR_LOGIN_SERVER: 'acrgitopsdemo12345.azurecr.io'
+  RG_NAME: 'my-rg'
+  AKS_NAME: 'my-aks-cluster'
   TF_VAR_acr_name: '$(ACR_NAME)'
   TF_IN_AUTOMATION: 'true'
-  RG_NAME: '$(RG_NAME)'
-  AKS_NAME: '$(AKS_NAME)'
+  BOOTSTRAP_ARGOCD: 'true'
+
 
 stages:
 - stage: Terraform
